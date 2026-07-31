@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/mk1.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Short Korean Dress</h1>
+
+            <h2>₹1999 <span>₹1799</span></h2>
+
+            <p class="offer">10% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Fabric</b></td>
+                    <td>Pure Cotton</td>
+                </tr>
+
+                <tr>
+                    <td><b>Available Colors</b></td>
+                    <td>Blue, Black, Pink, Green</td>
+                </tr>
+
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>S, M, L, XL, XXL</td>
+                </tr>
+
+                <tr>
+                    <td><b>Brand</b></td>
+                    <td>Fashion World</td>
+                </tr>
+
+                <tr>
+                    <td><b>Company</b></td>
+                    <td>ABC Fashion Pvt. Ltd.</td>
+                </tr>
+
+                <tr>
+                    <td><b>Warranty</b></td>
+                    <td>6 Months Stitching Warranty</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= Male Kurti &price=499"
+   class="buy-btn">
+   <button> Buy Now</button>
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'mk10' %}">
+            <img src="{% static 'images/mk10.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹11699</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'mk3' %}">
+            <img src="{% static 'images/mk3.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹1169</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'mk4' %}">
+            <img src="{% static 'images/mk4.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹1799</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'mk2' %}">
+            <img src="{% static 'images/mk2.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹899</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'mk8' %}">
+            <img src="{% static 'images/mk8.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹269</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'mk9' %}">
+            <img src="{% static 'images/mk9.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹899</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'mk10' %}">
+            <img src="{% static 'images/mk10.jpg' %}">
+            <h3>Male Kurti</h3>
+            <p>₹8099</p></a>
+        </div>
+ 
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/kurti2.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Chikankari Kurti</h1>
+
+            <h2>₹286 <span>₹352</span></h2>
+
+            <p class="offer">19% OFF | Free Delivery</p>
+
+           <table>
+
+                <tr>
+                    <td><b>Fabric</b></td>
+                    <td>Georgette</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Green</td>
+                </tr>
+
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>S, M, L, XL, XXL</td>
+                </tr>
+
+                <tr>
+                    <td><b>Pattern</b></td>
+                    <td>Chikankari</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td><b>Fit/Shape</b></td>
+                    <td>A-line</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+               <a href="{% url 'payment' %}?product=Kurti &price=499"
+   class="buy-btn">
+   <button> Buy Now</button>
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'kurti10' %}">
+            <img src="{% static 'images/kurti10.jpg' %}">
+            <h3>Short Kurti</h3>
+            <p>₹234</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti3' %}">
+            <img src="{% static 'images/kurti3.jpg' %}">
+            <h3>Three-Quarter Sleeves Kurti</h3>
+            <p>₹480</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti4' %}">
+            <img src="{% static 'images/kurti4.jpg' %}">
+            <h3>Women's Anarkali Dress</h3>
+            <p>₹418</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti2' %}">
+            <img src="{% static 'images/kurti2.jpg' %}">
+            <h3>Chikankari Kurti</h3>
+            <p>₹280</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'kurti8' %}">
+            <img src="{% static 'images/kurti8.jpg' %}">
+            <h3>Peplum Kurti</h3>
+            <p>₹404</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti5' %}">
+            <img src="{% static 'images/kurti5.jpg' %}">
+            <h3>Rayon Kurti</h3>
+            <p>₹536</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti12' %}">
+            <img src="{% static 'images/kurti12.jpg' %}">
+            <h3>Rayon Kurti Pant Set</h3>
+            <p>₹799</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'kurti11' %}">
+            <img src="{% static 'images/kurti11.jpg' %}">
+            <h3>V-Neck Kurti Pant Set</h3>
+            <p>₹234</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

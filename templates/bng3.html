@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head><body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/bng3.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Antique Bracelet</h1>
+
+            <h2>₹169 <span>₹197</span></h2>
+
+            <p class="offer">7% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Material</b></td>
+                    <td>Metal</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Gold</td>
+                </tr>
+
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>2.4,2.6,2.8</td>
+                </tr>
+
+                <tr>
+                    <td><b>Plating</b></td>
+                    <td>No plating</td>
+                </tr>
+
+                <tr>
+                    <td><b>Type</b></td>
+                    <td>Cubic Zirconia</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= Bangles &price=499"
+   class="buy-btn">
+   <button> Buy Now</button>
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'bng6' %}">
+            <img src="{% static 'images/bng6.jpg' %}">
+            <h3>Kashmiri Bangles</h3>
+            <p>₹226</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng3' %}">
+            <img src="{% static 'images/bng3.jpg' %}">
+            <h3>Antique Bracelet</h3>
+            <p>₹169</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng4' %}">
+            <img src="{% static 'images/bng4.jpg' %}">
+            <h3>Diamond Kada Bracelet</h3>
+            <p>₹153</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng2' %}">
+            <img src="{% static 'images/bng2.jpg' %}">
+            <h3>Blue Stone Bracelet</h3>
+            <p>₹217</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'bng5' %}">
+            <img src="{% static 'images/bng5.jpg' %}">
+            <h3>Golden Bridal Chuda</h3>
+            <p>₹774</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng7' %}">
+            <img src="{% static 'images/bng7.jpg' %}">
+            <h3>White Metal Bangles</h3>
+            <p>₹235</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng8' %}">
+            <img src="{% static 'images/bng8.jpg' %}">
+            <h3>American Diamond Bracelet</h3>
+            <p>₹232</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'bng9' %}">
+            <img src="{% static 'images/bng9.jpg' %}">
+            <h3>Graceful Bracelet</h3>
+            <p>₹176</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

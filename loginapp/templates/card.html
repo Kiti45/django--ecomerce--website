@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>My Cart</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/cart.css' %}">
+
+</head>
+
+<body>
+
+<h1>My Shopping Cart</h1>
+
+{% if cart_items %}
+
+    <div class="cart-container">
+
+        {% for item in cart_items %}
+
+        <div class="cart-item">
+
+            <div class="product-info">
+
+                <h2>{{ item.product_name }}</h2>
+
+                <p>Price: ₹{{ item.price }}</p>
+
+                <p>
+                    Total:
+                    ₹{{ item.total_price }}
+                </p>
+
+            </div>
+
+
+            <div class="quantity">
+
+                <form method="POST"
+                      action="{% url 'cart/decrease' item.id %}">
+                    {% csrf_token %}
+
+                    <button type="submit">−</button>
+
+                </form>
+
+
+                <span>
+                    {{ item.quantity }}
+                </span>
+
+
+                <form method="POST"
+                      action="{% url 'cart/increase' item.id %}">
+                    {% csrf_token %}
+
+                    <button type="submit">+</button>
+
+                </form>
+
+            </div>
+
+
+            <form method="POST"
+                  action="{% url 'remove_from_cart' item.id %}">
+
+                {% csrf_token %}
+
+                <button type="submit"
+                        class="remove-btn">
+
+                    Remove
+
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endfor %}
+
+
+        <div class="cart-total">
+
+            <h2>
+                Grand Total: ₹{{ total }}
+            </h2>
+
+            <a href="{% url 'payment' %}"
+               class="checkout-btn">
+
+                Proceed to Checkout
+
+            </a>
+
+        </div>
+
+    </div>
+
+{% else %}
+
+    <h2>Your cart is empty.</h2>
+
+    <a href="{% url 'home' %}">
+        Continue Shopping
+    </a>
+
+{% endif %}
+
+</body>
+</html>

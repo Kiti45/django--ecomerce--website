@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head><body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/home8.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Wall Hanger</h1>
+
+            <h2>₹461 <span>₹521</span></h2>
+
+            <p class="offer">12% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Material</b></td>
+                    <td>Wooden</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Black</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td><b>Type</b></td>
+                    <td>Wall Hanger</td>
+                </tr>
+
+                <tr>
+                    <td><b>Product height</b></td>
+                    <td>10 inch</td>
+                </tr>
+
+            
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= My Product &price=1000"
+   class="buy-btn">
+    Buy Now
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+     <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+         <div class="card">
+            <a href="{% url 'home3' %}">
+            <img src="{% static 'images/home3.jpg' %}">
+            <h3>Wall Hanging Shelf</h3>
+            <p>₹385</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home15' %}">
+            <img src="{% static 'images/home15.jpg' %}">
+            <h3>Pot Set Hanging</h3>
+            <p>₹475</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home4' %}">
+            <img src="{% static 'images/home4.jpg' %}">
+            <h3>Metal Leaves Showpiece</h3>
+            <p>₹190</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home2' %}">
+            <img src="{% static 'images/home2.jpg' %}">
+            <h3>Vibrant Pom Pom Garland Decor</h3>
+            <p>₹630</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'home5' %}">
+            <img src="{% static 'images/home5.jpg' %}">
+            <h3>Jhula</h3>
+            <p>₹2700</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home12' %}">
+            <img src="{% static 'images/home12.jpg' %}">
+            <h3>Stylish Wall Hanging</h3>
+            <p>₹343</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home6' %}">
+            <img src="{% static 'images/home6.jpg' %}">
+            <h3>Elephant Showpiece</h3>
+            <p>₹1060</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'home8' %}">
+            <img src="{% static 'images/home8.jpg' %}">
+            <h3>Wall Hanger</h3>
+            <p>₹461</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

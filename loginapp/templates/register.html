@@ -1,0 +1,71 @@
+{% load static %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Registration</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<div class="container register-box">
+
+<h2>Registration Form</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input type="text" name="name" placeorder="Full Name" required>
+
+<input type="email" name="email" placeorder="Email Address" required>
+
+<input type="text"
+name="phone"
+placeorder="Phone Number"
+pattern="[0-9]{10}"
+title="Enter 10 digit phone number"
+required>
+
+<input type="number"
+name="age"
+placeorder="Age"
+min="18"
+max="80"
+required>
+
+<textarea
+name="address"
+placeorder="Enter Address"
+required></textarea>
+<!--
+<input type="text"
+name="username"
+placeorder="Username"
+required>
+
+<input type="password"
+name="password"
+placeorder="Password"
+minlength="6"
+required>-->
+
+<button type="submit">Register</button>
+
+<p>{{message}}</p>
+
+<p><a href="/">Back To Login</a></p>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

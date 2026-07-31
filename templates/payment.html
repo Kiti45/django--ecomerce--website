@@ -1,0 +1,314 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - DailyDeals</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6f9;
+            padding: 30px;
+        }
+
+        .payment-container {
+            width: 600px;
+            max-width: 95%;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1677b7;
+            margin-bottom: 25px;
+        }
+
+        .product-details {
+            background: #eef7ff;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .product-details h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #087f23;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #168acb;
+        }
+
+        .payment-method {
+            margin-top: 20px;
+        }
+
+        .online-payment {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            background: #168acb;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #096b9f;
+        }
+
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="payment-container">
+
+    <h1>Payment Details</h1>
+
+    <!-- PRODUCT INFORMATION -->
+
+    <div class="product-details">
+
+        <h2>Product: {{ product_name }}</h2>
+
+        <p class="product-price">
+            Price: ₹{{ price }}
+        </p>
+
+    </div>
+
+
+    <!-- PAYMENT FORM -->
+
+    <form method="POST" action="{% url 'payment' %}">
+
+        {% csrf_token %}
+
+        <!-- Keep product information -->
+
+        <input type="hidden"
+               name="product_name"
+               value="{{ product_name }}">
+
+        <input type="hidden"
+               name="price"
+               value="{{ price }}">
+
+
+        <!-- CUSTOMER NAME -->
+
+        <label>
+            Customer Name <span class="required">*</span>
+        </label>
+
+        <input type="text"
+               name="customer_name"
+               placeholder="Enter your name"
+               required>
+
+
+        <!-- MOBILE NUMBER -->
+
+        <label>
+            Mobile Number <span class="required">*</span>
+        </label>
+
+        <input type="tel"
+               name="mobile"
+               placeholder="Enter mobile number"
+               required>
+
+
+        <!-- ADDRESS -->
+
+        <label>
+            Delivery Address <span class="required">*</span>
+        </label>
+
+        <input type="text"
+               name="address"
+               placeholder="Enter delivery address"
+               required>
+
+
+        <!-- PAYMENT METHOD -->
+
+        <div class="payment-method">
+
+            <label>
+                Payment Method
+            </label>
+
+            <select name="payment_method"
+                    id="payment_method"
+                    onchange="showPaymentDetails()"
+                    required>
+
+                <option value="">
+                    Select Payment Method
+                </option>
+
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
+
+                <option value="Online">
+                    Online Payment
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ONLINE PAYMENT DETAILS -->
+
+        <div class="online-payment"
+             id="onlinePayment">
+
+            <h3>Online Payment Details</h3>
+
+            <label>
+                Payment Type
+            </label>
+
+            <select name="online_method">
+
+                <option value="Card">
+                    Debit / Credit Card
+                </option>
+
+                <option value="Net Banking">
+                    Net Banking
+                </option>
+
+                <option value="UPI">
+                    UPI
+                </option>
+
+            </select>
+
+
+            <label>
+                Card Number
+            </label>
+
+            <input type="text"
+                   name="card_number"
+                   placeholder="Enter card number">
+
+
+            <label>
+                Card Holder Name
+            </label>
+
+            <input type="text"
+                   name="card_holder"
+                   placeholder="Enter card holder name">
+
+
+            <label>
+                Expiry Date
+            </label>
+
+            <input type="text"
+                   name="expiry"
+                   placeholder="MM/YY">
+
+
+            <label>
+                CVV
+            </label>
+
+            <input type="password"
+                   name="cvv"
+                   placeholder="Enter CVV">
+
+        </div>
+
+
+        <button type="submit" class="btn">
+            Place Order
+        </button>
+
+    </form>
+
+</div>
+
+
+<script>
+
+function showPaymentDetails() {
+
+    let method = document.getElementById("payment_method").value;
+
+    let online = document.getElementById("onlinePayment");
+
+    if (method === "Online") {
+
+        online.style.display = "block";
+
+    } else {
+
+        online.style.display = "none";
+
+    }
+}
+
+</script>
+
+</body>
+</html>

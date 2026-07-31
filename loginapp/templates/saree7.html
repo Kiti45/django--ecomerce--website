@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/saree7.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Womens Daily Wear Saree</h1>
+
+            <h2>₹560 <span>₹611</span></h2>
+
+            <p class="offer">11% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Saree Fabric</b></td>
+                    <td>Geogette</td>
+                </tr>
+
+                <tr>
+                    <td><b>Blouse</b></td>
+                    <td>Running Blouse</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Pink</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>Single</td>
+                </tr>
+
+                <tr>
+                    <td><b>Pattern</b></td>
+                    <td>Printed</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= My Product &price=1000"
+   class="buy-btn">
+    Buy Now
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'saree10' %}">
+            <img src="{% static 'images/saree10.jpg' %}">
+            <h3>Bollywood Ruffle Saree</h3>
+            <p>₹630</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree3' %}">
+            <img src="{% static 'images/saree3.jpg' %}">
+            <h3>Party Wear Saree</h3>
+            <p>₹567</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree4' %}">
+            <img src="{% static 'images/saree4.jpg' %}">
+            <h3>Designer Linen Saree</h3>
+            <p>₹575</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree2' %}">
+            <img src="{% static 'images/saree2.jpg' %}">
+            <h3>Indowestern Saree</h3>
+            <p>₹799</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'saree8' %}">
+            <img src="{% static 'images/saree8.jpg' %}">
+            <h3>Party Wear Saree</h3>
+            <p>₹635</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree5' %}">
+            <img src="{% static 'images/saree5.jpg' %}">
+            <h3>Kanjivaram Silk</h3>
+            <p>₹1169</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree12' %}">
+            <img src="{% static 'images/saree12.jpg' %}">
+            <h3>Kanjipuram Paithani Saree</h3>
+            <p>₹1349</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'saree11' %}">
+            <img src="{% static 'images/saree11.jpg' %}">
+            <h3>Royal Embroidered Saree</h3>
+            <p>₹1425</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/pant5.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Denim Daily Use Jeans</h1>
+
+            <h2>₹471 <span>₹508</span></h2>
+
+            <p class="offer">7% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Fabric</b></td>
+                    <td>Denim</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Blue</td>
+                </tr>
+
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>26, 28, 30, 32, 34, 36</td>
+                </tr>
+
+                <tr>
+                    <td><b>Stretch</b></td>
+                    <td>Stretchable</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td><b>Fit/Shape</b></td>
+                    <td>Jogger</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= My Product &price=1000"
+   class="buy-btn">
+    Buy Now
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+                <div class="card">
+            <a href="{% url 'pant10' %}">
+            <img src="{% static 'images/pant10.jpg' %}">
+            <h3>Cargo Shorts</h3>
+            <p>₹268</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant3' %}">
+            <img src="{% static 'images/pant3.avif' %}">
+            <h3>Skinny Jeans for Girls</h3>
+            <p>₹473</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant4' %}">
+            <img src="{% static 'images/pant4.webp' %}">
+            <h3>Denim Plazzo for Womens</h3>
+            <p>₹627</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant2' %}">
+            <img src="{% static 'images/pant2.jpg' %}">
+            <h3>Cargo Stylish Jeans</h3>
+            <p>₹638</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'pant8' %}">
+            <img src="{% static 'images/pant8.jpg' %}">
+            <h3>Stylish Ribbon Short for Girls</h3>
+            <p>₹259</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant5' %}">
+            <img src="{% static 'images/pant5.jpg' %}">
+            <h3>Denim Daily Use Jeans</h3>
+            <p>₹471</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant12' %}">
+            <img src="{% static 'images/pant12.jpg' %}">
+            <h3>Stylish Cut Jeans</h3>
+            <p>₹704</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'pant11' %}">
+            <img src="{% static 'images/pant11.jpg' %}">
+            <h3>Regular Fit Casual Pant</h3>
+            <p>₹265</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/tshirt4.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Trendy Women's Flower TShirt</h1>
+
+            <h2>₹255 <span>₹285</span></h2>
+
+            <p class="offer">10% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Fabric</b></td>
+                    <td>Cotton Blend</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Black</td>
+                </tr>
+
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>S, M, L, XL, XXL</td>
+                </tr>
+
+                <tr>
+                    <td><b>Pattern</b></td>
+                    <td>Soild</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td><b>Fit/Shape</b></td>
+                    <td>Regular</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= My Product &price=1000"
+   class="buy-btn">
+    Buy Now
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'tshirt10' %}">
+            <img src="{% static 'images/tshirt10.jpg' %}">
+            <h3>Daily Use Stylish TShirt</h3>
+            <p>₹268</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt3' %}">
+            <img src="{% static 'images/tshirt3.jpg' %}">
+            <h3>Women's Half Sleeves TShirt</h3>
+            <p>₹487</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt4' %}">
+            <img src="{% static 'images/tshirt4.jpg' %}">
+            <h3>Trendy Women's Flower TShirt</h3>
+            <p>₹255</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt2' %}">
+            <img src="{% static 'images/tshirt2.jpg' %}">
+            <h3>Women's Daily Use Stylish TShirt</h3>
+            <p>₹450</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'tshirt8' %}">
+            <img src="{% static 'images/tshirt8.jpg' %}">
+            <h3>Half Sleeves TShirt</h3>
+            <p>₹217</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt5' %}">
+            <img src="{% static 'images/tshirt5.jpg' %}">
+            <h3>Daily Use TShirt</h3>
+            <p>₹348</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt12' %}">
+            <img src="{% static 'images/tshirt12.jpg' %}">
+            <h3>Denim Sleeveless Waistcoat</h3>
+            <p>₹567</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'tshirt11' %}">
+            <img src="{% static 'images/tshirt11.jpg' %}">
+            <h3>Crop TShirt</h3>
+            <p>₹224</p></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

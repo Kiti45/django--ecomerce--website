@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Order Successful</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f7fa;
+        }
+
+        .success-container {
+            width: 550px;
+            max-width: 90%;
+            margin: 80px auto;
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #168a45;
+            margin-bottom: 25px;
+        }
+
+        .order-details {
+            text-align: left;
+            background: #f5faff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .order-details p {
+            font-size: 16px;
+            margin: 12px 0;
+        }
+
+        .price {
+            color: #087f23;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #168acb;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .home-btn:hover {
+            background: #096b9f;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="success-container">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1>
+        Order Placed Successfully!
+    </h1>
+
+
+    <div class="order-details">
+
+        <p>
+            <strong>Product:</strong>
+            {{ product_name }}
+        </p>
+
+        <p>
+            <strong>Price:</strong>
+
+            <span class="price">
+                ₹{{ price }}
+            </span>
+        </p>
+
+        <p>
+            <strong>Customer:</strong>
+            {{ customer_name }}
+        </p>
+
+        <p>
+            <strong>Payment Method:</strong>
+            {{ payment_method }}
+        </p>
+
+    </div>
+
+
+    <a href="{% url 'home' %}"
+       class="home-btn">
+
+        Continue Shopping
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

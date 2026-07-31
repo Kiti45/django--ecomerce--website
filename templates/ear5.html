@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head><body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/ear5.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Simple Suds Earings</h1>
+
+            <h2>₹126 <span>₹157</span></h2>
+
+            <p class="offer">20% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Material</b></td>
+                    <td>Alloy</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Gold</td>
+                </tr>
+
+                <tr>
+                    <td><b>Trend</b></td>
+                    <td>Peacock</td>
+                </tr>
+
+                <tr>
+                    <td><b>Plating</b></td>
+                    <td>Gold plating</td>
+                </tr>
+
+                <tr>
+                    <td><b>Type</b></td>
+                    <td>ChandBali</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                <a href="{% url 'payment' %}?product= Earings &price=499"
+   class="buy-btn">
+   <button> Buy Now</button>
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'ear6' %}">
+            <img src="{% static 'images/ear6.jpg' %}">
+            <h3>Diamond Earing</h3>
+            <p>₹226</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear3' %}">
+            <img src="{% static 'images/ear3.jpg' %}">
+            <h3>Pretty Tops</h3>
+            <p>₹69</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear4' %}">
+            <img src="{% static 'images/ear4.jpg' %}">
+            <h3>Bow Look Earing</h3>
+            <p>₹53</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear2' %}">
+            <img src="{% static 'images/ear2.jpg' %}">
+            <h3>Mirror Work Earingt</h3>
+            <p>₹154</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'ear5' %}">
+            <img src="{% static 'images/ear5.jpg' %}">
+            <h3>Simple Suds</h3>
+            <p>₹126</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear7' %}">
+            <img src="{% static 'images/ear7.jpg' %}">
+            <h3>Earing Combo Set</h3>
+            <p>₹235</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear8' %}">
+            <img src="{% static 'images/ear8.jpg' %}">
+            <h3>Pearl Earing</h3>
+            <p>₹97</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ear9' %}">
+            <img src="{% static 'images/ear9.jpg' %}">
+            <h3>Kashmiri Earing</h3>
+            <p>₹209</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

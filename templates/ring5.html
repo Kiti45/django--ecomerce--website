@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head><body>
+
+<div class="container">
+
+    <!-- Product Section -->
+    <div class="product-section">
+
+        <div class="product-image">
+            <img src="{% static 'images/ring5.jpg' %}" alt="Product">
+        </div>
+
+        <div class="product-details">
+
+            <h1>Royal Golden Ring</h1>
+
+            <h2>₹560 <span>₹614</span></h2>
+
+            <p class="offer">9% OFF | Free Delivery</p>
+
+            <table>
+
+                <tr>
+                    <td><b>Material</b></td>
+                    <td>Alloy</td>
+                </tr>
+
+                <tr>
+                    <td><b>Color</b></td>
+                    <td>Silver</td>
+                </tr>
+
+                <tr>
+                    <td><b>Type</b></td>
+                    <td>American Diamond</td>
+                </tr>
+
+                <tr>
+                    <td><b>Component</b></td>
+                    <td>Stones,Glitters</td>
+                </tr>
+
+                <tr>
+                    <td><b>Net Quantity</b></td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td><b>Delivery</b></td>
+                    <td>3-5 Days</td>
+                </tr>
+
+                <tr>
+                    <td><b>Cash On Delivery</b></td>
+                    <td>Available (₹40 Charge)</td>
+                </tr>
+
+                <tr>
+                    <td><b>UPI Payment</b></td>
+                    <td>PhonePe, Google Pay, Paytm, BHIM</td>
+                </tr>
+
+                <tr>
+                    <td><b>Return Policy</b></td>
+                    <td>7 Days Easy Return</td>
+                </tr>
+
+            </table>
+
+            <div class="buttons">
+               <form method="POST" action="{% url 'add_to_cart' %}">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="product_name" value="Beautiful Piece">
+
+    <input type="hidden" name="price" value="599">
+    <button type="submit" class="add-cart-btn">
+        🛒 Add to Cart
+    </button>
+
+</form>
+                 <a href="{% url 'payment' %}?product= Ring &price=499"
+   class="buy-btn">
+   <button> Buy Now</button>
+</a></div>
+
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+
+    <!--<div class="description">
+
+        <h2>Product Description</h2>
+
+        <p>
+            This beautiful cotton printed kurti is made using premium quality
+            fabric. It is soft, comfortable and suitable for casual as well as
+            festive occasions.
+        </p>
+
+    </div>-->
+
+    <!-- Related Products -->
+
+    <h2 class="heading">Related Products</h2>
+
+    <div class="related-products">
+
+        <div class="card">
+            <a href="{% url 'ring6' %}">
+            <img src="{% static 'images/ring6.jpg' %}">
+            <h3>Fancy Ring</h3>
+            <p>₹183</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring3' %}">
+            <img src="{% static 'images/ring3.jpg' %}">
+            <h3>Daily Use Diamond Ring</h3>
+            <p>₹178</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring4' %}">
+            <img src="{% static 'images/ring4.jpg' %}">
+            <h3>Minimal Ring Set</h3>
+            <p>₹227</p><a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring2' %}">
+            <img src="{% static 'images/ring2.jpg' %}">
+            <h3>Crystal Ring</h3>
+            <p>₹132</p></a>
+        </div>
+        <div class="card">
+            <a href="{% url 'ring5' %}">
+            <img src="{% static 'images/ring5.jpg' %}">
+            <h3>Royal Golden Ring</h3>
+            <p>₹560</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring7' %}">
+            <img src="{% static 'images/ring7.jpg' %}">
+            <h3>Flower Ring</h3>
+            <p>₹156</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring8' %}">
+            <img src="{% static 'images/ring8.jpg' %}">
+            <h3>Traditional Ring</h3>
+            <p>₹270</p></a>
+        </div>
+
+        <div class="card">
+            <a href="{% url 'ring9' %}">
+            <img src="{% static 'images/ring9.jpg' %}">
+            <h3>Indrani Ring</h3>
+            <p>₹320</p></a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
