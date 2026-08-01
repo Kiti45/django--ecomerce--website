@@ -88,12 +88,29 @@ WSGI_APPLICATION = 'project.wsgi.application'
         #'PORT':'3306'
     #}
 #}
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
-}
+#DATABASES = {
+   # 'default': dj_database_url.config(
+  #      default=os.environ.get('DATABASE_URL')
+ #   )
+#}
 
+if os.environ.get("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL')
+        )
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'your_mysql_database',
+            'USER': 'root',
+            'PASSWORD': 'your_mysql_password',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
