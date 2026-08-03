@@ -16,7 +16,7 @@
 
 <h2>Registration Form</h2>
 
-<form method="POST">
+<form method="POST" action="{% url 'register' %}">
 
 {% csrf_token %}
 <label>Full Name</label>
